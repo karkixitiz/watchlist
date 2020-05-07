@@ -31,4 +31,15 @@ public class WatchlistController {
 
         return new ModelAndView(viewName , model);
     }
+    @GetMapping("/watchlistItemForm")
+    public ModelAndView showWatchlistItemForm() {
+
+        String viewName = "watchlistItemForm";
+
+        Map<String,Object> model = new HashMap<String,Object>();
+
+        model.put("watchlistItem", new WatchlistItem());
+
+        return new ModelAndView(viewName,model);
+    }
 }

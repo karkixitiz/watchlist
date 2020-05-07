@@ -14,3 +14,4 @@ Simple spring boot MVC application in java.
            It used to be a standard practice, but is less popular than using fat JARs. 
         3) Using Maven without packaging.
     - Spring MVC Architecture
+    - Form submission
