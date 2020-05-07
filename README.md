@@ -1,2 +1,2 @@
-# watchlist_spring_boot_mvc
+### Watchlist Spring Boot MVC
 Simple spring boot MVC application in java.
