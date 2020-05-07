@@ -13,3 +13,4 @@ Simple spring boot MVC application in java.
            It requires the installation of a web server, like Tomcat. 
            It used to be a standard practice, but is less popular than using fat JARs. 
         3) Using Maven without packaging.
+    - Spring MVC Architecture
