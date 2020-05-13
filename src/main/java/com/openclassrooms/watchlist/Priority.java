@@ -8,7 +8,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target(ElementType.FIELD)
+@Target(ElementType.FIELD) // this annotation is application for filed type
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy=PriorityValidator.class)
 public @interface Priority {

@@ -27,3 +27,11 @@ Simple spring boot MVC application in java.
     - Test Spring MVC Controllers using JUnit & Spring MockMvc: Unit tests for controllers to make sure they perform their basic functionalities
     
     - Field Validation: Standard annotations and custom annotations(adding own annotations in command object)
+    
+    - Cross-field validation and Cross-record Validation: Class level annotation
+    
+    - Configure Spring MVC(configure start up .html page)
+    
+    - Add a custom error page
+    
+    - Change tomcat server port number

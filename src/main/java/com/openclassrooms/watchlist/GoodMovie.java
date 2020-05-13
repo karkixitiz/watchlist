@@ -1,17 +1,19 @@
 package com.openclassrooms.watchlist;
 
-import javax.validation.Constraint;
 import javax.validation.Payload;
+import javax.validation.Constraint;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target({ElementType.FIELD}) // this annotation is application for filed type
+@Target(ElementType.TYPE) // this annotation is application for class type
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy= RatingValidator.class)
-public @interface Rating {
-    String message() default "Rating should be a number between 1-10";
+@Constraint(validatedBy=GoodMovieValidator.class)
+
+public @interface GoodMovie {
+    String message() default "if a movie is as good as 8 then priority should be at least M";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default  {};
+
 }

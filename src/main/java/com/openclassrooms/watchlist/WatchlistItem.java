@@ -3,8 +3,8 @@ package com.openclassrooms.watchlist;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+@GoodMovie //Class level validation annotation
 public class WatchlistItem {
-
         private Integer id;
         @NotBlank(message="Please enter the title")   // predefined validation annotation
         private String title;
