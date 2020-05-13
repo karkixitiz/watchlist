@@ -14,4 +14,5 @@ Simple spring boot MVC application in java.
            It used to be a standard practice, but is less popular than using fat JARs. 
         3) Using Maven without packaging.
     - Spring MVC Architecture
-    - Form submission
+    - Watch Movie List (CRU)
+    - Test Spring MVC Controllers using JUnit & Spring MockMvc: Unit tests for controllers to make sure they perform their basic functionalities
