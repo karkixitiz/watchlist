@@ -35,3 +35,9 @@ Simple spring boot MVC application in java.
     - Add a custom error page
     
     - Change tomcat server port number
+    
+    - Single Responsibility Principle: Each class should have one single task
+    
+    - Three-tier architecture(Presentation, Business logic, Data layer)
+    
+    - Refactoring: Changes the design of an application without changing its functionality.
