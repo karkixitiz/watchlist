@@ -10,9 +10,19 @@ import java.util.List;
 public class WatchlistService {
 
     WatchlistRepository watchlistRepository=new WatchlistRepository();
+    MovieRatingService movieRatingService=new MovieRatingService();
 
     public List<WatchlistItem> getWatchlistItems(){
-        return watchlistRepository.getList();
+
+        List<WatchlistItem> watchlistItems= watchlistRepository.getList();
+        for(WatchlistItem watchlistItem:watchlistItems){
+            String rating=movieRatingService.getMovieRating(watchlistItem.getTitle());
+
+            if(rating!=null){
+                watchlistItem.setRating(rating);
+            }
+        }
+        return watchlistItems;
     }
 
     public int getWatchlistItemsSize(){

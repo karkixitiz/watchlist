@@ -41,3 +41,5 @@ Simple spring boot MVC application in java.
     - Three-tier architecture(Presentation, Business logic, Data layer)
     
     - Refactoring: Changes the design of an application without changing its functionality.
+    
+    - OMDB API: use external API to get IMDb Rating field of movie. http://www.omdbapi.com/?i=tt3896198&apikey=yourkey&t=matrix
