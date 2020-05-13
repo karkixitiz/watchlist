@@ -7,7 +7,11 @@ import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class WatchlistController {
@@ -41,5 +45,16 @@ public class WatchlistController {
         model.put("watchlistItem", new WatchlistItem());
 
         return new ModelAndView(viewName,model);
+    }
+
+    @PostMapping("/watchlistItemForm")
+    public ModelAndView submitWatchlistItemForm(WatchlistItem watchlistItem) {
+        watchlistItem.setId(watchlistItem.index++);
+        watchlistItems.add(watchlistItem);
+
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("/watchlist");
+
+        return new ModelAndView(redirectView);
     }
 }
