@@ -5,11 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
@@ -37,25 +35,40 @@ public class WatchlistController {
         return new ModelAndView(viewName , model);
     }
     @RequestMapping(value="/watchlistItemForm", method=RequestMethod.GET)
-    public ModelAndView showWatchlistItemForm() {
-
-        String viewName = "watchlistItemForm";
-
+    public ModelAndView showWatchlistItemForm(@RequestParam(required=false) Integer id) {
         Map<String,Object> model = new HashMap<String,Object>();
+        WatchlistItem watchlistItem=findWatchlistItemById(id);
+        if(watchlistItem==null){
+            model.put("watchlistItem",new WatchlistItem());
+        }else{
+            model.put("watchlistItem", watchlistItem);
+        }
+        return new ModelAndView("watchlistItemForm", model);
+    }
 
-        model.put("watchlistItem", new WatchlistItem());
-
-        return new ModelAndView(viewName,model);
+    private WatchlistItem findWatchlistItemById(Integer id) {
+        for(WatchlistItem watchlistItem:watchlistItems){
+            if(watchlistItem.getId().equals(id)){
+                return  watchlistItem;
+            }
+        }
+        return null;
     }
 
     @RequestMapping(value="/watchlistItemForm", method=RequestMethod.POST)
-    public ModelAndView submitWatchlistItemForm(WatchlistItem watchlist) {
-       watchlist.setId(watchlist.index++);
-        watchlistItems.add(watchlist);
-
+    public ModelAndView submitWatchlistItemForm(WatchlistItem watchlistItem) {
+        WatchlistItem existingItem=findWatchlistItemById(watchlistItem.getId());
+        if(existingItem==null){
+            watchlistItem.setId(watchlistItem.index++);
+            watchlistItems.add(watchlistItem);
+        }else{
+            existingItem.setComment(watchlistItem.getComment());
+            existingItem.setPriority(watchlistItem.getPriority());
+            existingItem.setRating(watchlistItem.getRating());
+            existingItem.setTitle(watchlistItem.getTitle());
+        }
         RedirectView redirectView = new RedirectView();
         redirectView.setUrl("/watchlist");
-
         return new ModelAndView(redirectView);
     }
 }
