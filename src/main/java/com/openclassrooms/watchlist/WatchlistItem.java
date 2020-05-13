@@ -1,15 +1,19 @@
 package com.openclassrooms.watchlist;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 public class WatchlistItem {
 
         private Integer id;
-
+        @NotBlank(message="Please enter the title")   // predefined validation annotation
         private String title;
-
+        @Rating   //created own rating validation annotation
         private String rating;
-
+        @Priority  // /created own priority validation annotation
         private String priority;
 
+        @Size(max=50,message="Comment should be maximun 50 characters")
         private String comment;
 
         public static int index = 0;

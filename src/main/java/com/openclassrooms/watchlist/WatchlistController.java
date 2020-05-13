@@ -5,12 +5,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
+
+import javax.validation.Valid;
 
 @RestController
 public class WatchlistController {
@@ -56,7 +59,10 @@ public class WatchlistController {
     }
 
     @RequestMapping(value="/watchlistItemForm", method=RequestMethod.POST)
-    public ModelAndView submitWatchlistItemForm(WatchlistItem watchlistItem) {
+    public ModelAndView submitWatchlistItemForm(@Valid WatchlistItem watchlistItem, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()){
+            return new ModelAndView("watchlistItemForm");
+        }
         WatchlistItem existingItem=findWatchlistItemById(watchlistItem.getId());
         if(existingItem==null){
             watchlistItem.setId(watchlistItem.index++);
