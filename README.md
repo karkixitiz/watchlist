@@ -53,4 +53,4 @@ Simple spring boot MVC application in java.
     
     - Spring Bean, Bean configuration, spring context/Container
     
-    -Configuring Spring Beans: * Use Java annotations, * Use XML files, *Use Java code + @Bean
+    - Dependency Injection  3 Methods Or Spring bean Configuration: XML files, Java code(@bean,@configure) and Annotations(@Service,@Autowired)
