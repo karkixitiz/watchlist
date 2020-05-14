@@ -48,4 +48,9 @@ Simple spring boot MVC application in java.
      pass them to you. Instead of creating new instance of dependencies, define them as constructor parameters.
      
     - Spring dependency framework : beans-Classes are managed, mark with special annotations(@AutoWired,@service)
+    
     - Mockito framework and JUnit
+    
+    - Spring Bean, Bean configuration, spring context/Container
+    
+    -Configuring Spring Beans: * Use Java annotations, * Use XML files, *Use Java code + @Bean

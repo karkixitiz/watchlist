@@ -9,13 +9,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@Service
+//@Service
 public class WatchlistService {
 
     WatchlistRepository watchlistRepository;
     MovieRatingService movieRatingService;
 
-    @Autowired
+//    @Autowired
     public WatchlistService(WatchlistRepository watchlistRepository,MovieRatingService movieRatingService){
         super();
         this.watchlistRepository=watchlistRepository;
