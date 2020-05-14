@@ -54,3 +54,9 @@ Simple spring boot MVC application in java.
     - Spring Bean, Bean configuration, spring context/Container
     
     - Dependency Injection  3 Methods Or Spring bean Configuration: XML files, Java code(@bean,@configure) and Annotations(@Service,@Autowired)
+    
+    -Logback framework:
+    
+    - Understand log levels: Error -> Warn -> info -> debuge ->trace
+    
+    - Save logs on file

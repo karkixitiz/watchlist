@@ -6,6 +6,8 @@ import java.util.Map;
 import com.openclassrooms.watchlist.domain.WatchlistItem;
 import com.openclassrooms.watchlist.exception.DuplicateTitleException;
 import com.openclassrooms.watchlist.service.WatchlistService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,7 @@ import javax.validation.Valid;
 public class WatchlistController {
 
     private WatchlistService watchlistService;
-
+    private final Logger logger= LoggerFactory.getLogger(WatchlistController.class);
     @Autowired
     public WatchlistController(WatchlistService watchlistService){
     super();
@@ -30,6 +32,7 @@ public class WatchlistController {
 
     @RequestMapping(value="/watchlist", method=RequestMethod.GET)
     public ModelAndView getList() {
+        logger.info("HTTP GET request received at /watchlist URL");
         String viewName = "watchlist";
         Map<String, Object> model = new HashMap<String, Object>();
 /*
@@ -44,6 +47,7 @@ public class WatchlistController {
 
     @RequestMapping(value="/watchlistItemForm", method=RequestMethod.GET)
     public ModelAndView showWatchlistItemForm(@RequestParam(required=false) Integer id) {
+        logger.info("HTTP GET request received at /watchlistItemForm URL");
         Map<String,Object> model = new HashMap<String,Object>();
         WatchlistItem watchlistItem=watchlistService.findWatchlistItemById(id);
         if(watchlistItem==null){
@@ -56,6 +60,7 @@ public class WatchlistController {
 
     @RequestMapping(value="/watchlistItemForm", method=RequestMethod.POST)
     public ModelAndView submitWatchlistItemForm(@Valid WatchlistItem watchlistItem, BindingResult bindingResult) {
+        logger.info("HTTP POST request received at /watchlistItemForm URL");
         if(bindingResult.hasErrors()){
             return new ModelAndView("watchlistItemForm");
         }
