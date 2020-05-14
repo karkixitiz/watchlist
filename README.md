@@ -1,7 +1,7 @@
 ### Watchlist Spring Boot MVC
 Simple spring boot MVC application in java.
 
-## Reference
+### Learning
     - Using Spring Initializr to bootstrap a new application (https://start.spring.io)
     
     - Build tool maven
@@ -60,3 +60,12 @@ Simple spring boot MVC application in java.
     - Understand log levels: Error -> Warn -> info -> debuge ->trace
     
     - Save logs on file
+    
+    -Spring Boot Actuator: optimize the performance of endpoint. some endpoints( /beans, /env, /metrics, /httptrace) actuator
+    
+### Outcomes
+    - Create web applications
+    - Use Spring boot & Spring MVC
+    - Write testable code
+    - Monitor app performance
+    -  Comprehend Spring ecosystem
