@@ -43,3 +43,9 @@ Simple spring boot MVC application in java.
     - Refactoring: Changes the design of an application without changing its functionality.
     
     - OMDB API: use external API to get IMDb Rating field of movie. http://www.omdbapi.com/?i=tt3896198&apikey=yourkey&t=matrix
+    
+    - Idea behind depencency injection(DI framework): don't create instance of your dependencies, declare your dependencies and let someone else create instalnce of then and
+     pass them to you. Instead of creating new instance of dependencies, define them as constructor parameters.
+     
+    - Spring dependency framework : beans-Classes are managed, mark with special annotations(@AutoWired,@service)
+    - Mockito framework and JUnit

@@ -6,6 +6,7 @@ import java.util.Map;
 import com.openclassrooms.watchlist.domain.WatchlistItem;
 import com.openclassrooms.watchlist.exception.DuplicateTitleException;
 import com.openclassrooms.watchlist.service.WatchlistService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,13 @@ import javax.validation.Valid;
 @RestController
 public class WatchlistController {
 
-    private WatchlistService watchlistService =new WatchlistService();
+    private WatchlistService watchlistService;
+
+    @Autowired
+    public WatchlistController(WatchlistService watchlistService){
+    super();
+    this.watchlistService=watchlistService;
+    }
 
     @RequestMapping(value="/watchlist", method=RequestMethod.GET)
     public ModelAndView getList() {

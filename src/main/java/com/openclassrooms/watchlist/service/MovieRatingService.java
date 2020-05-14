@@ -1,10 +1,12 @@
 package com.openclassrooms.watchlist.service;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+@Service
 public class MovieRatingService {
 
     String apiUrl = "http://www.omdbapi.com/?i=tt3896198&apikey=a8ed4a8d&t=";
